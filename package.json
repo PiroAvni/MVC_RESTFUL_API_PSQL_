@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll",
+    "coverage": "jest --coverage"
   },
   "keywords": [
     "nodejs#",
@@ -22,6 +23,9 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "morgan": "^1.10.0",
+    "pg": "^8.10.0"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.22"
   }
 }
