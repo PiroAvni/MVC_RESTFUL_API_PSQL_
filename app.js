@@ -22,6 +22,10 @@ app.get("/", (req, res) => {
   });
 });
 
+app.post('/', (req, res) => {
+  res.status(405).send('Not Allowed')
+})
+
 app.get("/customers", async (req, res) => {
   const data = await db.query("SELECT * FROM customer ORDER BY customer_id");
   //console.log(data);

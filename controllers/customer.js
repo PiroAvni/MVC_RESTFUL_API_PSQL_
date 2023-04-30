@@ -8,7 +8,7 @@ const show = async (req, res) => {
     console.log("line 7 - con:", customer)
     res.status(200).send(customer);
   } catch (error) {
-    res.status(404).send({ error: error.message });
+    res.status(404).send({ error:error.message });
   }
 };
 
@@ -101,7 +101,7 @@ const deleteCustomer = async (req, res) => {
 
     console.log("line 90 - con:", deleteCustomer)
 
-    res.status(200).send({
+    res.status(204).send({
       message: `Customer ID:${req.params.id} has been Deleted successfully`,
       body: {
         user: {
@@ -118,7 +118,7 @@ const deleteCustomer = async (req, res) => {
       }
     });
   } catch (error) {
-    res.status(404).send({ error: error.message,
+    res.status(204).send({ error: error.message,
       body:{description:`Customer ID: ${req.params.id} does not exist`}
     });
   }
