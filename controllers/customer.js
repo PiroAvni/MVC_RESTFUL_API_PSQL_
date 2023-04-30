@@ -78,9 +78,53 @@ const updateCustomer =async (req, res) => {
     } catch (error) {
         res.status(404).send({ error: error.message });
     }
-}
+};
+
+// DESTROY - DELETE
+const deleteCustomer = async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const 
+        {
+            first_name,
+            last_name,
+            street_number,
+            street_name,
+            city,
+            post_code,
+            country,
+            email,
+            phone
+        } = req.body;
+    console.log("line  87 - con", id)
+    const deleteCustomer = await Customer.deleteCustomer(id);
+
+    console.log("line 90 - con:", deleteCustomer)
+
+    res.status(200).send({
+      message: `Customer ID:${req.params.id} has been Deleted successfully`,
+      body: {
+        user: {
+          id,
+          first_name,
+          last_name,
+          street_number,
+          street_name,
+          city,
+          post_code,
+          country,
+          email,
+          phone},
+      }
+    });
+  } catch (error) {
+    res.status(404).send({ error: error.message,
+      body:{description:`Customer ID: ${req.params.id} does not exist`}
+    });
+  }
+};
 
 
-module.exports = {  show, createCustomer, updateCustomer };
+module.exports = {  show, createCustomer, updateCustomer, deleteCustomer };
 
 // MODEL/DB -> CONTROLLER ->  ROUTER -> APP

@@ -8,7 +8,7 @@ router
 .route("/:id")
 .get(customerController.show)
 .patch(customerController.updateCustomer)
-
+.delete(customerController.deleteCustomer)
 
 router
 .route("/")

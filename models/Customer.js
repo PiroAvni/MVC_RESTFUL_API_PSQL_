@@ -47,7 +47,7 @@ class Customer {
 
   static async updateCustomer(data, id) {
     console.log("line 47 - models:", id);
-    console.log("line 50 - model:", data)
+    console.log("line 50 - model:", data);
 
     // UPDATE - PUT
     const updateCustomer = await db.query(
@@ -62,11 +62,27 @@ class Customer {
         data.country,
         data.email,
         data.phone,
-        id
-    ],
+        id,
+      ]
     );
     //console.log("line 68 - model:", updateCustomer);
     return new Customer(updateCustomer.rows[0]);
+  }
+
+  // DESTROY - DELETE
+  static async deleteCustomer(id) {
+    console.log("line 74 - model", id);
+   
+    const data = await db.query("DELETE FROM customer WHERE customer_id = $1", [id],
+    );
+
+    console.log("line 79 -mod row[0]", data.rows[0]);
+    console.log("line 79 -mod row", data.rows);
+    console.log("line 79 -mod", data);
+
+
+
+    return new Customer(data);
   }
 }
 
