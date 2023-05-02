@@ -38,15 +38,15 @@ describe("api server", () => {
 
   test("responds to post /customers with status 201", (done) => {
     const testData = {
-      first_name: "Emrah",
-      last_name: "Piro",
-      street_number: "17",
-      street_name: "Sundale Ave",
-      city: "London",
-      post_code: "CS1 8RT",
-      country: "UK",
-      email: "HELLO@TEST.COM",
-      phone: "123456789",
+      first_name: 'Peter',
+      last_name: 'Jones',
+      street_number: '17',
+      street_name: 'Sundale Ave',
+      city: 'London',
+      post_code: 'CS1 8RT',
+      country: 'UK',
+      email: 'HELLO@TEST.COM',
+      phone: '123456789',
     };
     request(api)
       .post("/customers")

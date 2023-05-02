@@ -30,9 +30,10 @@ const createCustomer = async (req, res) => {
  console.log('line 27 - controller:',req.body)
     //validation request body
    
-    if (req.bod) {
-      res.status(204).send({ message: "Content can not be empty!" });
+    if (!req.body) {
+     return  res.status(204).send({ message: "Content can not be empty!" });
     }
+
    
     const newCustomer = await Customer.createCustomer(req.body)
     console.log('line 34:', newCustomer)

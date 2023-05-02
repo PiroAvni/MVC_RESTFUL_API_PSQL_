@@ -5,7 +5,7 @@ require("dotenv").config(); // Load environment config
 const sqlQuery = fs.readFileSync('../server/database/bank_detail-setup.sql').toString();
 
 // Get a link to the database
-const db = require("./config/db");
+const db = require("./db");
 
 // Run the query
 db.query(sqlQuery)
